@@ -1,0 +1,29 @@
+name: GameApp
+options:
+  bundleIdPrefix: je.eg
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    CODE_SIGN_STYLE: Automatic
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  GameApp:
+    type: application
+    platform: iOS
+    sources: [GameApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: je.eg.game
+        INFOPLIST_KEY_CFBundleDisplayName: "Game"
+        ITSAppUsesNonExemptEncryption: false
+    info:
+      path: GameApp/Info.plist
+      properties:
+        CFBundleDisplayName: "Game"
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIRequiresFullScreen: true
+        ITSAppUsesNonExemptEncryption: false
