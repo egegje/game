@@ -18,6 +18,10 @@
 <body>
 <div id="app"></div>
 <div id="sheet-ovl" class="sheet-ovl"></div>
+<script>
+/* Старая версия game.eg.je была PWA — снимаем её service worker, чтобы не отдавал кэш. */
+if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(function(rs){ rs.forEach(function(r){ r.unregister(); }); });
+</script>
 <script src="js/app.js"></script>
 <script src="js/tetris.js"></script>
 <script src="js/banker.js"></script>
