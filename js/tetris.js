@@ -65,6 +65,7 @@
   }
   function rotate(){
     if (!G || G.over || G.paused) return;
+    if (G.cur.k === 'O') return; // квадрат не крутится (иначе сдвигается)
     var s = G.cur.size;
     var rc = G.cur.cells.map(function(c){ return [s - 1 - c[1], c[0]]; });
     var kicks = [0, -1, 1, -2, 2];
@@ -94,6 +95,7 @@
     else { G.hold = k; if (G.queue.length < 7) G.queue = G.queue.concat(bag()); var nk = G.queue.shift();
            G.cur = { k: nk, cells: SHAPES[nk].map(function(c){ return c.slice(); }), x: 3, y: nk === 'I' ? -1 : 0, size: SIZE[nk] }; }
     G.holdUsed = true; sfx.rotate(); renderMinis(); draw();
+    if (collides(G.cur.cells, G.cur.x, G.cur.y)) gameOver(); // поле забито — обменянной фигуре некуда встать
   }
   function lock(){
     for (var i = 0; i < G.cur.cells.length; i++){
@@ -223,12 +225,14 @@
     }, { passive: false });
     f.addEventListener('touchend', function(e){
       if (!G || G.over || G.paused) return;
+      // гасим синтетический click после touch, иначе тап крутил фигуру дважды (180°)
+      e.preventDefault();
       var t = e.changedTouches[0];
       var dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - st;
       if (dy > 70 && dt < 240 && Math.abs(dx) < Math.abs(dy)){ hard(); return; }
-      if (!moved && Math.abs(dx) < 12 && Math.abs(dy) < 12 && dt < 300) rotate();
-    }, { passive: true });
-    // мышь на десктопе: клик — поворот; клавиатура для отладки
+      if (!moved && Math.abs(dx) < 12 && Math.abs(dy) < 12 && dt < 350) rotate();
+    }, { passive: false });
+    // мышь на десктопе: клик — поворот (после touch click погашен preventDefault-ом)
     f.addEventListener('click', function(){ rotate(); });
   }
   function keyHandler(e){

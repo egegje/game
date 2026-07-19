@@ -39,9 +39,10 @@
 
   /* ---------- состояние ---------- */
   var S = null;          // партия
+  var active = false;    // экран банкира открыт (гасит отложенные rerender после ухода)
   var ui = { headOpen:false, showDeps:false, showLoans:false, expApp:{}, chartSel:-1 };
 
-  function save(){ if (S) LS.setItem('game_banker_save', JSON.stringify(S)); }
+  function save(){ try { if (S) LS.setItem('game_banker_save', JSON.stringify(S)); } catch(e){} }
   function load(){ try { return JSON.parse(LS.getItem('game_banker_save') || 'null'); } catch(e){ return null; } }
   function wipe(){ LS.removeItem('game_banker_save'); }
 
@@ -312,9 +313,10 @@
     fn();
     window.scrollTo(0, y);
   }
-  function rerender(){ scrollKeep(renderMain); save(); }
+  function rerender(){ if (!active) return; scrollKeep(renderMain); save(); }
 
   function renderMain(){
+    if (!active) return;
     if (!S){ renderStart(); return; }
     var margin = S.creditRate - S.depositRate;
     var depSum = S.deposits.reduce(function(a, d){ return a + d.amount; }, 0);
@@ -605,7 +607,7 @@
         liveUpdate();
       }
       el.addEventListener('touchstart', function(){ rect = el.getBoundingClientRect(); }, { passive:true });
-      el.addEventListener('touchmove', function(e){ e.preventDefault(); setFromX(e.touches[0].clientX); }, { passive:false });
+      el.addEventListener('touchmove', function(e){ e.preventDefault(); if (e.touches[0]) setFromX(e.touches[0].clientX); }, { passive:false });
       el.addEventListener('touchend', function(){ rect = null; sfx.click(); save(); }, { passive:true });
       el.addEventListener('click', function(e){ setFromX(e.clientX); sfx.click(); save(); });
     });
@@ -955,6 +957,7 @@
   /* ---------- регистрация ---------- */
   A.reg('banker', {
     enter: function(){
+      active = true;
       S = load();
       ui = { headOpen:false, showDeps:false, showLoans:false, expApp:{}, chartSel:-1 };
       /* отладка скринов: ?go=banker&strat=mid[&months=5][&head=1] */
@@ -974,6 +977,11 @@
       }
       renderStart();
     },
-    leave: function(){ if (S) save(); }
+    leave: function(){
+      active = false;
+      if (S) save();
+      clearTimeout(toastTimer);
+      var t = document.querySelector('.toast'); if (t) t.classList.remove('on');
+    }
   });
 })();
