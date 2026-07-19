@@ -11,9 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/tetris.css">
-<link rel="stylesheet" href="css/banker.css">
+<link rel="stylesheet" href="css/app.css?v=2">
+<link rel="stylesheet" href="css/tetris.css?v=2">
+<link rel="stylesheet" href="css/banker.css?v=2">
 </head>
 <body>
 <div id="app"></div>
@@ -22,9 +22,9 @@
 /* Старая версия game.eg.je была PWA — снимаем её service worker, чтобы не отдавал кэш. */
 if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(function(rs){ rs.forEach(function(r){ r.unregister(); }); });
 </script>
-<script src="js/app.js"></script>
-<script src="js/tetris.js"></script>
-<script src="js/banker.js"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/tetris.js?v=2"></script>
+<script src="js/banker.js?v=2"></script>
 <script>App.boot();</script>
 </body>
 </html>
