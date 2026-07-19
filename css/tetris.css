@@ -1,0 +1,82 @@
+/* Тетрис */
+.t-scr{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}
+.t-head{display:flex;align-items:center;gap:12px;padding:4px 0 6px}
+.t-score-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
+.t-score-cap{font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:.2em;color:var(--faint)}
+.t-score{font:800 27px 'JetBrains Mono',monospace;color:var(--ink);line-height:1.1}
+.t-side{display:flex;flex-direction:column;align-items:flex-end;gap:3px;width:44px}
+.t-side div{font:600 11px 'JetBrains Mono',monospace;color:var(--sec)}
+.t-side b{color:var(--ink);font-weight:800}
+.t-side b.lv{color:var(--acink)}
+body.dark .t-side b.lv{color:#FFC91F}
+.pause-bars{display:flex;gap:3.5px}
+.pause-bars i{width:4px;height:14px;border-radius:2px;background:var(--ink)}
+
+.t-mini-row{display:flex;align-items:flex-end;justify-content:space-between;padding:2px 2px 8px}
+.t-mini-col{display:flex;flex-direction:column;gap:5px}
+.t-mini-col.r{align-items:flex-end}
+.t-mini-cap{font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:.18em;color:var(--faint)}
+.t-mini{width:48px;height:48px;border-radius:13px;background:var(--card);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center}
+.t-mini.sm{width:40px;height:40px;border-radius:11px;background:var(--card2);border:1px solid var(--bd2)}
+.t-next-row{display:flex;gap:6px;align-items:flex-end}
+
+.t-field-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.t-field{position:relative;border-radius:16px;background:#0A0B0F;border:1px solid rgba(242,239,231,.09);overflow:hidden;touch-action:none}
+body:not(.dark) .t-field{background:#101116;border:none;box-shadow:0 10px 26px rgba(25,27,32,.16)}
+.t-field canvas{display:block}
+
+.t-caption{text-align:center;font:500 11px 'Golos Text';color:var(--faint);padding:10px 0 2px}
+
+.t-btns{display:flex;gap:10px;padding:12px 2px 2px}
+.t-btn{flex:1;height:64px;border-radius:18px;background:var(--card);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;cursor:pointer}
+body.dark .t-btn{background:#17181D;border:1px solid rgba(242,239,231,.09)}
+.t-btn:active{transform:scale(.95)}
+.t-btn.ac{background:var(--ac);border:none}
+.t-tri-l{width:0;height:0;border-right:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.t-tri-r{width:0;height:0;border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.t-tri-d{width:0;height:0;border-top:14px solid #191B20;border-left:9px solid transparent;border-right:9px solid transparent}
+.t-rot{width:20px;height:20px;border:3.5px solid var(--ink);border-top-color:transparent;border-radius:50%;position:relative}
+.t-rot i{position:absolute;top:-8px;right:-3px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:9px solid var(--ink);transform:rotate(40deg)}
+
+/* пауза: строка статов */
+.t-stats{display:flex;gap:14px;font:600 12.5px 'JetBrains Mono',monospace;color:var(--sec);margin-top:-6px;flex-wrap:wrap}
+.t-stats b{color:var(--ink);font-weight:700}
+.t-ctl-seg{display:flex;background:var(--seg);border-radius:13px;padding:3px;gap:3px;margin-top:2px}
+.t-ctl-seg div{flex:1;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font:500 13px 'Golos Text';color:var(--sec);cursor:pointer}
+.t-ctl-seg div.on{background:var(--segon);font-weight:700;color:var(--ink)}
+
+/* конец игры */
+.t-over{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:0 8px}
+.t-conf{position:absolute;border-radius:4px}
+.t-cup{width:88px;height:88px;border-radius:26px;background:var(--ac);display:flex;align-items:center;justify-content:center}
+.t-cup.glow{box-shadow:0 0 0 10px rgba(255,201,31,.14),0 0 0 22px rgba(255,201,31,.05)}
+.t-cup i{width:44px;height:32px;clip-path:polygon(0 0,22% 42%,50% 0,78% 42%,100% 0,88% 78%,12% 78%,0 0);background:#191B20;margin-top:-4px}
+.t-over-cap{font:900 23px 'Unbounded';letter-spacing:.06em;margin-top:30px;text-align:center}
+.t-over-cap.rec{color:#FFC91F}
+.t-over-cap.plain{color:var(--ink)}
+.t-over-score{font:800 56px 'JetBrains Mono',monospace;color:var(--ink);line-height:1.15;margin-top:10px}
+.t-over-sub{font:600 13px 'JetBrains Mono',monospace;color:var(--sec);margin-top:8px}
+.t-over-sub b{color:var(--ok);font-weight:600}
+.t-chips{display:flex;gap:8px;margin-top:18px}
+.t-chip{padding:8px 14px;border-radius:11px;background:var(--card);border:1px solid var(--bd);font:600 12px 'JetBrains Mono',monospace;color:var(--sec)}
+body.dark .t-chip{background:#17181D}
+.t-over-btns{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:40px}
+.t-over-btns .btn{height:58px;border-radius:18px}
+.t-over-btns .btn.card{background:var(--card);border:1px solid var(--bd);color:var(--ink);font-weight:600}
+body.dark .t-over-btns .btn.card{background:#1B1D24}
+
+/* рекорды */
+.rec-badge{padding:8px 13px;border-radius:11px;background:#101118;font:700 12px 'Unbounded';color:#F2EFE7}
+.rec-card{background:var(--card);border:1px solid var(--bd2);border-radius:22px;overflow:hidden}
+.rec-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+.rec-row:first-child{border-top:none}
+.rec-row.top{padding:13px 16px}
+.rec-row.gold{background:var(--acbg)}
+.rec-pos{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;font:700 14px 'JetBrains Mono',monospace;color:var(--faint);flex:none}
+.rec-pos.p1{background:var(--ac);color:#191B20;font-weight:800}
+.rec-pos.p23{background:var(--track);color:var(--ink);font-weight:800}
+.rec-score{flex:1;font:600 15px 'JetBrains Mono',monospace;color:var(--sec);display:flex;align-items:baseline;gap:8px}
+.rec-score.top3{font-weight:700;font-size:16px;color:var(--ink)}
+.rec-new{padding:2.5px 7px;border-radius:6px;background:#191B20;font:700 9.5px 'Golos Text';color:#FFC91F}
+.rec-date{font:500 12px 'JetBrains Mono',monospace;color:var(--faint)}
+.rec-empty{padding:30px 16px;text-align:center;font:400 13px 'Golos Text';color:var(--faint)}

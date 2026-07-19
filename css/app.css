@@ -1,0 +1,129 @@
+/* Game — дизайн-система «Плитка». Токены из мокапов Claude Design. */
+:root{
+  --bg:#EFECE3; --card:#FFFFFF; --card2:#F7F4EA; --bd:#E1DDCE; --bd2:#E7E3D6; --line:#F1EDE0;
+  --ink:#191B20; --sec:#70747D; --faint:#9A9D93; --ghost:#B4B0A1;
+  --seg:#E3DFD0; --segon:#FFFFFF; --chip:#F4F1E8; --btn2:#F1EEE4;
+  --ac:#FFC91F; --acink:#8A6D00; --acbg:#FFF6D2;
+  --ok:#1FA361; --oktx:#157A4B; --okbg:#DFF3E7;
+  --er:#E5484D; --ertx:#C93A3F; --erbg:#FBEDEA; --erbd:#F2D2CD;
+  --wa:#F08C00; --watx:#B05E1E;
+  --track:#E9E5D8;
+  --emerald:#123F33;
+  --cartridge:#101118;
+}
+body.dark{
+  --bg:#0F1014; --card:#17181D; --card2:#15161B; --bd:rgba(242,239,231,.08); --bd2:rgba(242,239,231,.07); --line:#22242B;
+  --ink:#F2EFE7; --sec:#9CA0A9; --faint:#63666E; --ghost:#4A4D55;
+  --seg:#1A1C22; --segon:#2A2D35; --chip:#1E2026; --btn2:#232630;
+  --ac:#FFC91F; --acink:#FFC91F; --acbg:rgba(255,201,31,.14);
+  --ok:#34C783; --oktx:#5BDCA0; --okbg:rgba(52,199,131,.14);
+  --er:#E5484D; --ertx:#FF6369; --erbg:#2A1518; --erbd:rgba(255,99,105,.22);
+  --wa:#FFA02E; --watx:#FFC98A;
+  --track:#262932;
+  --cartridge:#15161D;
+}
+*{-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Golos Text',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior:none;
+  -webkit-user-select:none; user-select:none;
+  touch-action:manipulation;
+}
+#app{min-height:100%;display:flex;flex-direction:column}
+.scr{flex:1;display:flex;flex-direction:column;box-sizing:border-box;min-height:100vh;min-height:100dvh;
+  padding:calc(env(safe-area-inset-top,0px) + 14px) 18px calc(env(safe-area-inset-bottom,0px) + 16px)}
+.mono{font-family:'JetBrains Mono',monospace}
+.unb{font-family:'Unbounded'}
+
+/* --- иконка-кнопка 44px --- */
+.ib{width:44px;height:44px;border-radius:14px;background:var(--card);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer}
+.ib:active{transform:scale(.96)}
+.back-ch{width:9px;height:9px;border-left:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg);margin-left:3px}
+
+/* --- главный экран --- */
+.home-top{display:flex;align-items:center;justify-content:space-between;padding:6px 2px 4px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-grid{display:grid;grid-template-columns:11px 11px;grid-template-rows:11px 11px;gap:2.5px}
+.logo-grid i{border-radius:3px}
+.logo-grid i:nth-child(1){background:var(--ac)}
+.logo-grid i:nth-child(2),.logo-grid i:nth-child(3){background:var(--ink)}
+.logo-grid i:nth-child(4){background:#1FA361}
+.logo-name{font-family:'Unbounded';font-weight:900;font-size:19px;letter-spacing:.05em;color:var(--ink)}
+.gear-l{width:16px;height:2px;background:var(--ink);border-radius:2px;position:relative}
+.gear-l i{position:absolute;top:-2px;width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.home-sub{font-size:14.5px;color:var(--sec);padding:2px 2px 16px}
+.carts{flex:1;display:flex;flex-direction:column;gap:14px}
+.cart{flex:1;border-radius:26px;position:relative;overflow:hidden;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;min-height:230px}
+.cart:active{transform:scale(.985)}
+.cart.tet{background:var(--cartridge)}
+body.dark .cart.tet{border:1px solid rgba(242,239,231,.07)}
+.cart.bank{background:var(--emerald)}
+.cart .grid-bg{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(242,239,231,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,231,.05) 1px,transparent 1px);
+  background-size:26px 26px;background-position:8px 8px}
+.cart .nm{position:relative;font-family:'Unbounded';font-weight:700;font-size:25px;color:#F2EFE7}
+.cart .ds{position:relative;font-size:13.5px;color:rgba(242,239,231,.58);margin:5px 0 16px}
+.cart .foot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cart .prog{display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:12px;background:rgba(242,239,231,.09);
+  font:600 12.5px 'JetBrains Mono',monospace;color:#F2EFE7}
+.cart .play{width:46px;height:46px;border-radius:15px;background:#FFC91F;display:flex;align-items:center;justify-content:center;flex:none}
+.tri-r{width:0;height:0;border-left:13px solid #191B20;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.star{width:14px;height:10px;clip-path:polygon(50% 0,63% 38%,100% 38%,70% 60%,82% 100%,50% 76%,18% 100%,30% 60%,0 38%,37% 38%);background:#FFC91F;flex:none}
+/* декор картриджей */
+.deco-tet{position:absolute;top:24px;right:18px;transform:rotate(8deg);display:grid;grid-template-columns:repeat(4,26px);grid-template-rows:repeat(3,26px);gap:3px}
+.deco-tet i{border-radius:5px}
+.deco-bank{position:absolute;top:20px;right:22px;transform:rotate(-6deg)}
+.deco-bill{width:64px;height:40px;border-radius:10px;background:#1FA361;box-shadow:inset 0 0 0 2px rgba(16,17,20,.25);display:flex;align-items:center;justify-content:center;font:700 15px 'JetBrains Mono',monospace;color:#0E2C23}
+.deco-coin{position:absolute;width:38px;height:38px;border-radius:50%;background:#FFC91F;box-shadow:inset 0 0 0 4px rgba(25,27,32,.18);display:flex;align-items:center;justify-content:center;font:800 17px 'Golos Text';color:#191B20}
+
+/* --- заголовок внутренних экранов --- */
+.dethead{display:flex;align-items:center;gap:12px;padding-top:6px;margin-bottom:20px}
+.dethead .ttl{font:800 21px 'Golos Text';color:var(--ink);flex:1}
+
+/* --- настройки --- */
+.seclab{font:600 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--faint);padding:0 4px;margin-bottom:10px}
+.set-block{margin-bottom:20px}
+.seg3{display:flex;background:var(--seg);border-radius:16px;padding:4px;gap:4px}
+.seg3>div{flex:1;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font:500 13.5px 'Golos Text';color:var(--sec);cursor:pointer}
+.seg3>div.on{background:var(--segon);font-weight:700;color:var(--ink);box-shadow:0 1px 3px rgba(25,27,32,.1)}
+body.dark .seg3>div.on{box-shadow:none}
+.set-note{font:400 11.5px 'Golos Text';color:var(--faint);padding:4px 4px 0}
+.set-card{background:var(--card);border:1px solid var(--bd2);border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.set-card .t{font:600 15px 'Golos Text';color:var(--ink)}
+.set-card .t.danger{color:var(--ertx)}
+.set-card .s{font:400 12.5px 'Golos Text';color:var(--faint);margin-top:2px}
+.toggle{width:52px;height:32px;border-radius:99px;background:var(--track);position:relative;flex:none;transition:background .15s}
+.toggle.on{background:var(--ac)}
+.toggle i{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:var(--card);transition:left .15s}
+.toggle.on i{left:23px;background:#191B20}
+.chev-r{width:8px;height:8px;border-top:2.5px solid var(--ghost);border-right:2.5px solid var(--ghost);transform:rotate(45deg);flex:none}
+.ver{margin-top:auto;text-align:center;font:500 11px 'JetBrains Mono',monospace;color:var(--ghost);padding-top:20px}
+
+/* --- шторка (bottom sheet) --- */
+.sheet-ovl{position:fixed;inset:0;background:rgba(5,6,8,.55);z-index:50;display:none;align-items:flex-end}
+.sheet-ovl.on{display:flex}
+.sheet{width:100%;box-sizing:border-box;background:var(--bg);border-radius:28px 28px 0 0;
+  padding:14px 20px calc(env(safe-area-inset-bottom,0px) + 24px);display:flex;flex-direction:column;gap:14px;
+  max-height:86vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body.dark .sheet{background:#1B1D24}
+.sheet .handle{width:40px;height:4px;border-radius:99px;background:var(--track);margin:0 auto 4px;flex:none}
+.sheet .icn{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font:800 22px 'Golos Text'}
+.sheet .h{font:800 19px 'Golos Text';color:var(--ink)}
+.sheet .p{font:400 13.5px/1.55 'Golos Text';color:var(--sec);margin-top:-6px}
+.btn{height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font:700 15px 'Golos Text';cursor:pointer;flex:none}
+.btn:active{transform:scale(.98)}
+.btn.ac{background:var(--ac);color:#191B20}
+.btn.dim{background:var(--btn2);color:var(--ink);font-weight:600}
+.btn.danger{background:var(--er);color:#FFF4F0}
+.btn.ghost{background:none;color:var(--ertx);height:44px;font:600 14px 'Golos Text'}
+.btn.disabled{opacity:.5;pointer-events:none}
+
+/* модалка по центру (пауза и т.п.) */
+.cmod-ovl{position:fixed;inset:0;background:rgba(25,27,32,.35);z-index:60;display:flex;align-items:center;justify-content:center;padding:24px}
+body.dark .cmod-ovl{background:rgba(5,6,8,.6)}
+.cmod{width:306px;background:var(--card);border-radius:26px;padding:24px 22px 22px;box-shadow:0 30px 60px rgba(25,27,32,.3);display:flex;flex-direction:column;gap:14px}
+body.dark .cmod{background:#1B1D24}

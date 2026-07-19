@@ -1,0 +1,278 @@
+/* Банкир */
+.b-scr{padding:0 !important;display:block}
+.b-inner{padding:14px 16px calc(env(safe-area-inset-bottom,0px) + 18px);display:flex;flex-direction:column;gap:12px}
+
+/* старт */
+.bs-scr{display:flex;flex-direction:column}
+.bs-top{display:flex;align-items:center;justify-content:space-between;padding-top:4px}
+.bs-how{padding:10px 14px;border-radius:12px;background:var(--card);border:1px solid var(--bd);font:600 12.5px 'Golos Text';color:var(--ink);cursor:pointer}
+.bs-logo{width:64px;height:64px;border-radius:19px;background:var(--emerald);display:flex;align-items:center;justify-content:center;font:900 30px 'Golos Text';color:#FFC91F}
+.bs-name{font:900 36px 'Unbounded';color:var(--ink);margin-top:16px}
+.bs-slogan{font:400 14.5px/1.5 'Golos Text';color:var(--sec);margin-top:8px;max-width:300px}
+.bs-cont{margin-top:24px;border-radius:22px;background:var(--emerald);padding:18px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.bs-cont:active{transform:scale(.985)}
+.bs-cont .t{font:800 17px 'Golos Text';color:#F2EFE7}
+.bs-cont .s{font:600 12.5px 'JetBrains Mono',monospace;color:rgba(242,239,231,.65);margin-top:5px}
+.bs-cont .s b{color:#5BDCA0;font-weight:600}
+.bs-div{display:flex;align-items:center;gap:12px;margin:20px 0 12px}
+.bs-div i{flex:1;height:1px;background:var(--bd)}
+.bs-div span{font:600 11.5px 'Golos Text';color:var(--faint)}
+.bs-strat{background:var(--card);border:1px solid var(--bd2);border-radius:20px;padding:15px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px}
+.bs-strat:active{transform:scale(.985)}
+.bs-strat .nm{font:700 15.5px 'Golos Text';color:var(--ink)}
+.bs-strat .ds{font:400 12px 'Golos Text';color:var(--faint);margin-top:3px}
+.bs-strat .cap{font:700 14.5px 'JetBrains Mono',monospace;color:var(--ink)}
+.bs-strat .rk{font:500 10.5px 'Golos Text';margin-top:2px}
+.risk-dots{display:inline-flex;gap:3px;margin-left:8px;vertical-align:1px}
+.risk-dots i{width:8px;height:8px;border-radius:2.5px;background:var(--track)}
+.bs-foot{margin-top:auto;text-align:center;font:400 11.5px 'Golos Text';color:var(--faint);padding-top:14px}
+
+/* шапка главного экрана */
+.bh{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--bd);
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 6px}
+.bh-row{display:flex;align-items:center;gap:10px}
+.bh .ib{width:38px;height:38px;border-radius:12px}
+.bh-m{flex:1}
+.bh-m .t{font:800 15px 'Golos Text';color:var(--ink)}
+.bh-m .s{font:500 11px 'Golos Text';color:var(--faint)}
+.bh-rate{display:flex;align-items:center;gap:6px;padding:8px 11px;border-radius:11px;background:var(--acbg);cursor:pointer}
+.bh-rate .star{width:12px;height:11px;background:var(--acink)}
+body.dark .bh-rate .star{background:#FFC91F}
+.bh-rate b{font:800 13px 'JetBrains Mono',monospace;color:var(--acink)}
+.bh-cash-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:12px}
+.bh-cash-cap{font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:.16em;color:var(--faint)}
+.bh-cash{font:800 24px 'JetBrains Mono',monospace;color:var(--ink);line-height:1.2}
+.bh-prof{padding:7px 11px;border-radius:10px;font:700 12.5px 'JetBrains Mono',monospace}
+.bh-prof.pos{background:var(--okbg);color:var(--oktx)}
+.bh-prof.neg{background:var(--erbg);color:var(--ertx)}
+.bh-more{text-align:center;padding:8px 0 2px;font:600 11px 'Golos Text';color:var(--faint);cursor:pointer}
+.bh-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.bh-stat{background:var(--card);border:1px solid var(--bd2);border-radius:14px;padding:10px 12px}
+.bh-stat .c{font:600 9px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--faint)}
+.bh-stat .v{font:700 13.5px 'JetBrains Mono',monospace;color:var(--ink);margin-top:4px}
+.bh-stat .v.ok{color:var(--oktx)}
+.bh-stat .v.ac{color:var(--acink)}
+body.dark .bh-stat .v.ac{color:#FFC91F}
+.bh-stat .v.er{color:var(--ertx)}
+
+/* карточка ставок */
+.b-card{background:var(--card);border:1px solid var(--bd2);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.b-rate-head{display:flex;align-items:center;gap:8px}
+.b-rate-head .nm{font:700 14px 'Golos Text';color:var(--ink)}
+.b-tag{padding:3px 7px;border-radius:6px;font:600 10px 'Golos Text'}
+.b-tag.exp{background:var(--erbg);color:var(--ertx)}
+body.dark .b-tag.exp{background:rgba(229,72,77,.16);color:#FF8A8E}
+.b-tag.inc{background:var(--okbg);color:var(--oktx)}
+.b-rate-head .val{margin-left:auto;font:800 18px 'JetBrains Mono',monospace;color:var(--ink)}
+.b-slider{position:relative;height:28px;display:flex;align-items:center;touch-action:none;cursor:pointer}
+.b-slider .tr{width:100%;height:12px;border-radius:99px;background:var(--track);overflow:hidden}
+.b-slider .fill{height:100%;border-radius:99px;background:var(--ink)}
+.b-slider .knob{position:absolute;top:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;
+  background:var(--card);border:3px solid var(--ink);box-sizing:border-box;box-shadow:0 2px 6px rgba(25,27,32,.2);pointer-events:none}
+body.dark .b-slider .knob{background:#F2EFE7;border-color:#0F1014}
+.b-margin{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px;border-radius:12px;background:var(--chip)}
+.b-margin span{font:600 11px 'JetBrains Mono',monospace;color:var(--faint)}
+.b-margin b{font:800 16px 'JetBrains Mono',monospace;color:var(--oktx)}
+.b-margin b.neg{color:var(--ertx)}
+
+/* следующий месяц */
+.b-next-row{display:flex;gap:10px}
+.b-next{flex:1;height:58px;border-radius:18px;background:var(--ac);display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 6px 16px rgba(255,201,31,.35);cursor:pointer;font:800 16px 'Golos Text';color:#191B20}
+.b-next:active{transform:scale(.98)}
+.b-next i{width:0;height:0;border-left:10px solid #191B20;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.b-balance{width:104px;height:58px;border-radius:18px;background:var(--card);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;font:700 14px 'Golos Text';color:var(--ink);cursor:pointer}
+
+/* инструменты */
+.b-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.b-tool{background:var(--card);border:1px solid var(--bd2);border-radius:16px;padding:12px 8px 10px;
+  display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer}
+.b-tool:active{transform:scale(.95)}
+.b-tool span{font:600 11.5px 'Golos Text';color:var(--ink)}
+.b-tool .ic{font:800 16px 'Golos Text';color:var(--ink);height:18px;display:flex;align-items:center}
+.b-tool .dot{position:absolute}
+.b-tool{position:relative}
+.b-tool .badge{position:absolute;top:6px;right:8px;min-width:16px;height:16px;border-radius:8px;background:var(--ok);
+  font:700 10px 'JetBrains Mono',monospace;color:#fff;display:flex;align-items:center;justify-content:center;padding:0 4px}
+
+/* секции */
+.b-sec{display:flex;align-items:baseline;gap:8px;padding:6px 2px 0}
+.b-sec .h{font:800 16px 'Golos Text';color:var(--ink)}
+.b-sec .r{margin-left:auto;font:600 11.5px 'JetBrains Mono',monospace;color:var(--faint)}
+.b-lab{font:600 10px 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--faint);padding:0 2px}
+.b-lab.er{color:var(--ertx)}
+
+/* заявки-карточки */
+.b-app{background:var(--card);border:1px solid var(--bd2);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:11px}
+.b-prow{display:flex;align-items:center;gap:11px}
+.b-ava{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font:800 14px 'Golos Text';flex:none}
+.b-ava.sm{width:40px;height:40px;border-radius:13px;font-size:13px}
+.b-ava.xs{width:34px;height:34px;border-radius:11px;font-size:11.5px}
+.b-pname{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.b-pname .nm{font:700 15px 'Golos Text';color:var(--ink)}
+.b-pname .nm.sm{font-size:13.5px}
+.b-badge{padding:2.5px 7px;border-radius:6px;font:700 9.5px 'Golos Text'}
+.b-badge.vip{background:var(--acbg);color:var(--acink)}
+body.dark .b-badge.vip{color:#FFC91F}
+.b-badge.rep{background:#E8F0FE;color:#3D5DA8}
+body.dark .b-badge.rep{background:#223354;color:#9FC0FF}
+.b-badge.prod{background:#EEF0FF;color:#4A5BC4}
+body.dark .b-badge.prod{background:#26304F;color:#9FB2FF}
+.b-risk{font:600 10.5px 'Golos Text'}
+.b-risk.lo{color:var(--oktx)}
+.b-risk.mid{color:var(--watx)}
+body.dark .b-risk.mid{color:#FFA02E}
+.b-risk.hi{color:var(--ertx)}
+.b-cond{font:600 12.5px 'JetBrains Mono',monospace;color:var(--sec);margin-top:3px}
+.b-stepper{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:14px;background:var(--chip)}
+.b-stepper .lb{font:600 12px 'Golos Text';color:var(--sec)}
+.b-stepper .v{margin-left:auto;display:flex;align-items:center;gap:10px}
+.b-step{width:34px;height:34px;border-radius:11px;background:var(--card);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;font:700 16px 'Golos Text';color:var(--ink);cursor:pointer;flex:none}
+body.dark .b-step{background:#26282F;border:none}
+.b-step:active{transform:scale(.9)}
+.b-rateval{font:800 16px 'JetBrains Mono',monospace;color:var(--ink);width:44px;text-align:center}
+.b-quiz{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:14px;border:1.5px dashed #E3C25A;background:#FFFBEC;cursor:pointer}
+body.dark .b-quiz{border-color:rgba(255,201,31,.45);background:rgba(255,201,31,.06)}
+.b-quiz .q{width:22px;height:22px;border-radius:7px;background:var(--ac);display:flex;align-items:center;justify-content:center;font:800 13px 'Golos Text';color:#191B20;flex:none}
+.b-quiz .t{flex:1;font:600 11.5px/1.35 'Golos Text';color:var(--ink)}
+.b-quiz.done{opacity:.6;pointer-events:none}
+.b-acts{display:flex;gap:9px}
+.b-accept{flex:1;height:46px;border-radius:14px;background:#1FA361;display:flex;align-items:center;justify-content:center;
+  font:700 13.5px 'Golos Text';color:#fff;cursor:pointer}
+.b-accept:active{transform:scale(.98)}
+.b-decline{width:110px;height:46px;border-radius:14px;background:var(--btn2);display:flex;align-items:center;justify-content:center;
+  font:600 13px 'Golos Text';color:var(--sec);cursor:pointer}
+.b-scoring{display:flex;align-items:center;gap:8px;padding:0 2px}
+.b-scoring .lb{font:600 11.5px 'Golos Text';color:var(--sec)}
+.b-scoring .bars{flex:1;display:flex;gap:4px}
+.b-scoring .bars i{flex:1;height:7px;border-radius:4px;background:var(--track)}
+.b-scoring .bars i.on{background:var(--ok)}
+.b-scoring .n{font:700 12px 'JetBrains Mono',monospace;color:var(--oktx)}
+.b-mini-acts{display:flex;gap:8px}
+.b-mini-act{flex:1;height:38px;border-radius:12px;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;
+  font:600 12px 'Golos Text';color:var(--ink);cursor:pointer}
+.b-mini-act.used{opacity:.5;pointer-events:none}
+
+/* компактная заявка */
+.b-capp{background:var(--card);border:1px solid var(--bd2);border-radius:20px;padding:12px 14px;display:flex;align-items:center;gap:11px}
+.b-capp .mid{flex:1;min-width:0;cursor:pointer}
+.b-qbtn{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.b-qbtn.ok{background:var(--okbg)}
+.b-qbtn.ok i{width:11px;height:6px;border-left:2.5px solid var(--oktx);border-bottom:2.5px solid var(--oktx);transform:rotate(-45deg);margin-top:-3px}
+.b-qbtn.no{background:var(--erbg);font:700 15px 'Golos Text';color:var(--ertx)}
+
+/* списки */
+.b-list{background:var(--card);border:1px solid var(--bd2);border-radius:20px;overflow:hidden}
+.b-lrow{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
+.b-lrow:first-child{border-top:none}
+.b-lrow .mid{flex:1;min-width:0}
+.b-lrow .nm{font:700 13px 'Golos Text';color:var(--ink)}
+.b-lrow .sub{font:500 11px 'Golos Text';color:var(--faint);margin-top:1px}
+.b-lrow .amt{font:700 13px 'JetBrains Mono',monospace;color:var(--ink);text-align:right}
+.b-lrow .pay{font:600 11px 'JetBrains Mono',monospace;margin-top:1px;text-align:right}
+.b-lrow .pay.exp{color:var(--ertx)}
+.b-more{text-align:center;padding:10px;border-top:1px solid var(--line);font:600 11.5px 'Golos Text';color:var(--faint);cursor:pointer}
+.b-loanrow{padding:12px 14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.b-loanrow:first-child{border-top:none}
+.b-loanrow .top{display:flex;align-items:center;gap:8px}
+.b-loanrow .nm{font:700 13px 'Golos Text';color:var(--ink)}
+.b-loanrow .tp{font:500 10.5px 'Golos Text';color:var(--faint)}
+.b-loanrow .amt{margin-left:auto;font:700 12px 'JetBrains Mono',monospace;color:var(--ink)}
+.b-loanrow .bar-row{display:flex;align-items:center;gap:8px}
+.b-loanrow .bar{flex:1;height:6px;border-radius:4px;background:var(--track)}
+.b-loanrow .bar i{display:block;height:100%;border-radius:4px;background:var(--ok)}
+.b-loanrow .left{font:600 10.5px 'JetBrains Mono',monospace;color:var(--faint)}
+
+/* дефолт */
+.b-def{background:var(--erbg);border:1px solid var(--erbd);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:11px}
+.b-def .lost{font:700 13px 'JetBrains Mono',monospace;color:var(--ertx);margin-top:3px}
+.b-def .prodtag{padding:4px 9px;border-radius:8px;background:var(--er);font:700 10px 'Golos Text';color:#FFF4F0;margin-left:auto;flex:none}
+.b-def-acts{display:flex;flex-wrap:wrap;gap:7px}
+.b-def-act{padding:9px 12px;border-radius:11px;background:var(--card);border:1px solid #E9D3CE;font:600 11.5px 'Golos Text';color:var(--ink);cursor:pointer}
+body.dark .b-def-act{background:#17181D;border-color:#3A2A2C}
+.b-def-act.dim{color:var(--sec)}
+.b-def-act:active{transform:scale(.95)}
+.b-def-act.na{opacity:.4;pointer-events:none}
+
+/* график */
+.b-chart-card{background:var(--card);border:1px solid var(--bd2);border-radius:20px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px}
+.b-chart-head{display:flex;align-items:baseline;gap:8px}
+.b-chart-head .h{font:800 14.5px 'Golos Text';color:var(--ink)}
+.b-chart-head .r{margin-left:auto;font:600 11px 'JetBrains Mono',monospace;color:var(--faint)}
+.b-chart{position:relative;padding-top:24px}
+.b-tip{position:absolute;top:0;right:0;padding:4px 8px;border-radius:8px;background:var(--ink);font:700 10.5px 'JetBrains Mono',monospace;color:var(--ac)}
+body.dark .b-tip{background:#F2EFE7;color:#191B20}
+.b-bars-pos{display:flex;gap:5px;align-items:flex-end;height:84px}
+.b-bars-pos>div{flex:1;border-radius:3px 3px 0 0;background:var(--ok);opacity:.8;cursor:pointer}
+.b-bars-pos>div.sel{opacity:1;background:var(--oktx);outline:2px solid var(--ink);outline-offset:-2px}
+body.dark .b-bars-pos>div.sel{outline-color:#F2EFE7}
+.b-bars-pos>div.empty{background:none;outline:none;cursor:default}
+.b-axis{height:1px;background:var(--bd)}
+.b-bars-neg{display:flex;gap:5px;align-items:flex-start;height:20px}
+.b-bars-neg>div{flex:1;border-radius:0 0 3px 3px;background:var(--er);opacity:.85;cursor:pointer}
+.b-bars-neg>div.empty{background:none;cursor:default}
+.b-xlab{display:flex;gap:5px;margin-top:2px}
+.b-xlab div{flex:1;text-align:center;font:500 8.5px 'JetBrains Mono',monospace;color:var(--ghost)}
+.b-xlab div.sel{font-weight:700;color:var(--ink)}
+.b-chart-note{font:400 10.5px 'Golos Text';color:var(--faint)}
+
+/* баннер просрочки */
+.b-overdue{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);z-index:15;background:#C93A3F;border-radius:18px;
+  padding:13px 14px;display:flex;align-items:center;gap:11px;box-shadow:0 12px 30px rgba(201,58,63,.4);cursor:pointer}
+.b-overdue .ic{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font:800 18px 'Golos Text';color:#FFF4F0;flex:none}
+.b-overdue .t{font:800 13px 'Golos Text';color:#FFF4F0}
+.b-overdue .s{font:600 11.5px 'JetBrains Mono',monospace;color:rgba(255,244,240,.85);margin-top:2px}
+.b-overdue .act{height:40px;padding:0 14px;border-radius:12px;background:#FFF4F0;display:flex;align-items:center;font:700 12.5px 'Golos Text';color:#C93A3F;flex:none;margin-left:auto}
+
+/* модалки-шторки банкира */
+.bm-head{display:flex;align-items:center;gap:10px}
+.bm-head .h{font:800 20px 'Golos Text';color:var(--ink)}
+.bm-head .s{font:400 12.5px 'Golos Text';color:var(--faint);margin-top:2px}
+.bm-x{width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font:600 14px 'Golos Text';color:var(--sec);cursor:pointer;margin-left:auto;flex:none}
+body.dark .bm-x{background:#26282F;border:none}
+.bm-row{background:var(--card);border:1px solid var(--bd2);border-radius:18px;padding:14px;display:flex;align-items:center;gap:12px}
+.bm-row .ic{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:none;font:800 16px 'Golos Text'}
+.bm-row .t{font:700 14px 'Golos Text';color:var(--ink);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.bm-row .s{font:400 11.5px 'Golos Text';color:var(--faint);margin-top:2px}
+.bm-row .price{font:700 13px 'JetBrains Mono',monospace;color:var(--ink);text-align:right}
+.bm-go{height:34px;padding:0 14px;border-radius:11px;background:var(--ac);display:flex;align-items:center;font:700 12px 'Golos Text';color:#191B20;cursor:pointer}
+.bm-go.off{opacity:.45;pointer-events:none}
+.bm-note{font:400 11px 'Golos Text';color:var(--faint);text-align:center}
+.bm-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bm-cell{background:var(--chip);border-radius:14px;padding:11px 12px}
+body.dark .bm-cell{background:#22242C}
+.bm-cell .c{font:600 9px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--faint)}
+.bm-cell .v{font:700 14px 'JetBrains Mono',monospace;color:var(--ink);margin-top:4px}
+.bm-amts{display:flex;gap:8px}
+.bm-amt{flex:1;height:42px;border-radius:13px;background:var(--chip);display:flex;align-items:center;justify-content:center;
+  font:700 12.5px 'JetBrains Mono',monospace;color:var(--sec);cursor:pointer}
+body.dark .bm-amt{background:#22242C}
+.bm-amt.on{background:var(--ac);color:#191B20;font-weight:800}
+.bm-big{text-align:center;font:800 30px 'JetBrains Mono',monospace;color:var(--ink);padding:6px 0 2px}
+.bm-sub{text-align:center;font:600 12px 'JetBrains Mono',monospace;color:var(--sec);margin-top:-4px}
+.bm-warn{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:13px;background:rgba(240,140,0,.1);border:1px solid rgba(240,140,0,.3)}
+.bm-warn .i{width:20px;height:20px;border-radius:7px;background:var(--wa);display:flex;align-items:center;justify-content:center;font:800 12px 'Golos Text';color:#191B20;flex:none}
+.bm-warn .t{font:600 11.5px/1.35 'Golos Text';color:var(--watx)}
+.bm-quiz-q{font:700 16px/1.4 'Golos Text';color:var(--ink)}
+.bm-quiz-opt{background:var(--card);border:1px solid var(--bd2);border-radius:16px;padding:15px 16px;font:600 14px 'Golos Text';color:var(--ink);cursor:pointer}
+.bm-quiz-opt:active{transform:scale(.98)}
+.bm-quiz-opt.right{background:var(--okbg);border-color:var(--ok);color:var(--oktx)}
+.bm-quiz-opt.wrong{background:var(--erbg);border-color:var(--er);color:var(--ertx)}
+.bm-help{font:400 13.5px/1.6 'Golos Text';color:var(--sec)}
+.bm-help b{color:var(--ink)}
+.bm-bal-row{display:flex;align-items:baseline;gap:8px;padding:9px 2px;border-bottom:1px solid var(--line)}
+.bm-bal-row .l{font:500 13px 'Golos Text';color:var(--sec)}
+.bm-bal-row .v{margin-left:auto;font:700 13.5px 'JetBrains Mono',monospace}
+.bm-bal-row .v.pos{color:var(--oktx)}
+.bm-bal-row .v.neg{color:var(--ertx)}
+.bm-bal-row.total{border-bottom:none;padding-top:12px}
+.bm-bal-row.total .l{font-weight:800;color:var(--ink)}
+.bm-bal-row.total .v{font-size:16px;font-weight:800}
+
+/* тост */
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 80px);transform:translateX(-50%);
+  background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:13px;font:600 13px 'Golos Text';z-index:80;
+  white-space:nowrap;max-width:88vw;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .2s}
+.toast.on{opacity:1}
