@@ -191,7 +191,13 @@ var App = (function(){
   }});
 
   /* ---------- запуск ---------- */
-  function boot(){ applyTheme(); go('home'); }
+  var qs = new URLSearchParams(location.search);
+  function boot(){
+    if (qs.get('theme') === 'dark' || qs.get('theme') === 'light'){ theme = qs.get('theme'); }
+    applyTheme();
+    var g = qs.get('go');
+    go(g && screens[g] ? g : 'home');
+  }
 
   function toggleTheme(){
     var dark = document.body.classList.contains('dark');
@@ -204,7 +210,7 @@ var App = (function(){
     boot: boot, go: go, reg: reg,
     sheet: sheet, closeSheet: closeSheet, cmod: cmod, closeCmod: closeCmod,
     fmt: fmt, rub: rub, esc: esc, sfx: sfx, LS: LS,
-    toggleTheme: toggleTheme,
+    toggleTheme: toggleTheme, qs: qs,
     isSound: function(){ return sound; }
   };
 })();

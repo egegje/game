@@ -957,6 +957,21 @@
     enter: function(){
       S = load();
       ui = { headOpen:false, showDeps:false, showLoans:false, expApp:{}, chartSel:-1 };
+      /* отладка скринов: ?go=banker&strat=mid[&months=5][&head=1] */
+      var st = A.qs && A.qs.get('strat');
+      if (st){
+        newGame(st === 'safe' || st === 'bold' ? st : 'mid');
+        var mn = parseInt(A.qs.get('months') || '0', 10);
+        for (var i = 0; i < Math.min(mn, 24); i++){
+          if (S.depApps[0]) accept(S.depApps[0].id, true);
+          if (S.credApps[0] && S.cash > S.credApps[0].amount) accept(S.credApps[0].id, false);
+          nextMonth();
+          if (!S) return;
+        }
+        if (A.qs.get('head') === '1') ui.headOpen = true;
+        renderMain();
+        return;
+      }
       renderStart();
     },
     leave: function(){ if (S) save(); }
