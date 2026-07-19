@@ -1,0 +1,24 @@
+{
+  "name": "FUNDER NORTH",
+  "short_name": "FUNDER N",
+  "description": "MCA underwriting simulation trainer",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0C1017",
+  "theme_color": "#0C1017",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
