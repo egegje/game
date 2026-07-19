@@ -23,6 +23,8 @@ body.dark{
   --cartridge:#15161D;
 }
 *{-webkit-tap-highlight-color:transparent}
+html{scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
 html,body{margin:0;padding:0;height:100%}
 body{
   background:var(--bg); color:var(--ink);
